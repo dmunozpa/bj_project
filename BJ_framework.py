@@ -31,7 +31,8 @@ class Deck:
 
     def deal(self)-> Card:
         # TODO: Deal one card from the deck
-        pass
+         return self.cards.pop(0)
+        
 
 class EnglishDeck(Deck):
     def __init__(self):
