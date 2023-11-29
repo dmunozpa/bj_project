@@ -3,12 +3,15 @@ from tkinter import PhotoImage, messagebox
 import random
 
 class Card:
-    def __init__(self, suit: str, value: int):
+    def __init__(self, suit: str, value: str):
         # TODO: Initialize the attributes
+        self.suit = suit
+        self.value = value
         pass
 
     def get_numeric_value(self) -> int:
         # TODO: Return the numeric value of the card
+
         pass
 
     def get_image(self):
@@ -16,12 +19,14 @@ class Card:
         pass
 
 class Deck:
-    def __init__(self):
+    def __init__(self, suits =  [], values = []):
         # TODO: Initialize the deck
-        pass
+        self.cards = [Card(suit, value) for suit in suits for value in values]
+        #pass
 
     def shuffle(self):
         # TODO: Shuffle the cards
+        random.shuffle(self.cards)
         pass
 
     def deal(self)-> Card:
@@ -31,6 +36,9 @@ class Deck:
 class EnglishDeck(Deck):
     def __init__(self):
         # TODO: Create a standard deck of 52 cards and shuffle them
+        suits = ['hearts', 'diamonds', 'clubs', 'spades']
+        values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+        super().__init__(suits, values)
         pass
 
 class Hand:
